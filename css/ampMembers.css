@@ -19,7 +19,6 @@ header{
     position: sticky;
     top: 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: gold;
     justify-content: space-between;
@@ -29,12 +28,16 @@ header{
 }
 
 .logo{
+    transition: 0.3s ease 0s;
     padding: 10px;
     border-style: none;
     display: flex;
     align-items: center;
 }
 
+.logo:hover{
+    opacity: .5;
+}
 .navLinks{
    list-style: none;
    background-color: gold;
@@ -59,6 +62,10 @@ header{
     color: white;
 }
 
+.navLinks li a.active{
+    color: white;
+    font-weight: bold;
+}
 
 h1{
     font-family: 'Teko', sans-serif;
@@ -68,19 +75,78 @@ h1{
     margin-top: 20px;
 }
 
-.kaiCard{
+.cardContainer {
+    display: flex; /* Use Flexbox to align items horizontally */
+    flex-flow: row wrap; /* Allow wrapping of items */
+    justify-content: space-evenly; /* Align cards to the left */
+    gap: 100px; /* Add space between the cards */
+    margin: 40px; /* Add some spacing around the container */
+}
+
+/* Individual card styles remain the same */
+.kaiCard, .dukeCard, .davisCard, .agentCard, .fanumCard, .chrisCard {
     text-align: center;
-    margin: auto;
     font-family: 'Teko', sans-serif;
     font-size: 30px;
-    box-shadow: gold
+    border: 1px solid black;
+    box-shadow: 5px 5px gold;
+    max-width: 400px;
 }
 
 .kaiCard a{
+    transition: 0.3s ease 0s;
     display: inline-block;
-    padding: 10px;
+    padding: 5px;
 }
 
 .kaiCard a:hover{
+    opacity: .5;
+}
+
+.dukeCard a{
+    transition: 0.3s ease 0s;
+    display: inline-block;
+    padding: 5px;
+}
+.dukeCard a:hover{
+    opacity: .5;
+}
+
+.davisCard a{
+    transition: 0.3s ease 0s;
+    display: inline-block;
+    padding: 5px;
+}
+.davisCard a:hover{
+    opacity: .5;
+}
+
+.agentCard a{
+    transition: 0.3s ease 0s;
+    display: inline-block;
+    padding: 5px;
+}
+
+.agentCard a:hover{
+    opacity: .5;
+}
+
+.fanumCard a{
+    transition: 0.3s ease 0s;
+    display: inline-block;
+    padding: 5px;
+}
+
+.fanumCard a:hover{
+    opacity: .5;
+}
+
+.chrisCard a{
+    transition: 0.3s ease 0s;
+    display: inline-block;
+    padding: 5px;
+}
+
+.chrisCard a:hover{
     opacity: .5;
 }
