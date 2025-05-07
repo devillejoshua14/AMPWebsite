@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: 'Teko', sans-serif;
+    box-sizing: border-box;
+}
+
+li, a{
+    font-family: 'Teko', sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+    text-decoration: none;
+
+}
+
+header{
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background-color: gold;
+    justify-content: space-between;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.logo{
+    transition: 0.3s ease 0s;
+    padding: 10px;
+    border-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo:hover{
+    opacity: .5;
+}
+.navLinks{
+   list-style: none;
+   background-color: gold;
+   display: flex;
+   margin: 0;
+   padding: 0;
+   
+}
+
+.navLinks li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.navLinks li a{
+    transition: 0.3s ease 0s;
+    color: black;
+    text-decoration: none;
+}
+
+.navLinks li a:hover{
+    color: white;
+}
+
+.navLinks li a.active{
+    color: white;
+    font-weight: bold;
+}
+
+.videoHeader{
+    font-family: 'Teko', sans-serif;
+    font-size: 45px;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add spacing around the header */
+    color: white; /* Text color */
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px; /* Add spacing between the columns */
+    align-items: flex-start; /* Align items to the start of the column */
+    padding: 5px 5%; /* Add spacing around the container */
+}
+
+.container .mainVideo{
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden; /* Hide overflow */
+}
+
+.container .mainVideo iframe{
+    width: 100%;
+    border-radius: 5px; /* Include padding and border in the element's total width and height */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+
+}
+
+.container .mainVideo .videoTitle{
+    font-family: Teko, sans-serif;
+    font-size: 35px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.container .videoList{
+    border-radius: 5px;
+    height: 520px;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    width: 100%;
+
+}
+
+/* Fix for main video title */
+.container .mainVideo {
+    position: relative;
+    padding-top: 56.25%; /* Keep your aspect ratio */
+}
+
+.container .mainVideo .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container .mainVideo .videoTitle {
+    position: relative; /* Change from default */
+    z-index: 2; /* Ensure it appears above other elements */
+    background-color: rgba(0,0,0,0.7); /* Make title more readable */
+    padding: 10px;
+    margin-top: -4px; /* Remove gap between video and title */
+}
+
+/* Active state styling */
+.container .videoList .vid.active {
+    background-color: grey;
+    border: 2px solid white;
+}
+
+.container .videoList .vid.active .videoTitle {
+    font-weight: bold;
+}
+
+
+.container .videoList::-webkit-scrollbar {
+    width: 7px; /* Width of the scrollbar */
+}
+.container .videoList::-webkit-scrollbar-track {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 50px; /* Rounded corners for the scrollbar thumb */
+}
+
+.container .videoList::-webkit-scrollbar-thumb {
+    background-color: #555; /* Color of the scrollbar track */
+    border-radius: 50px; /* Rounded corners for the scrollbar track */
+}
+
+.container .videoList .vid iframe{
+    width: 200px;
+    border-radius: 5px;
+
+}
+
+.container .videoList .vid{
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Add spacing between the video thumbnail and title */;
+    border-radius: 5px;
+    margin: 10px 0; /* Add spacing between the video items */
+    padding: 10px; /* Add spacing inside the video item */
+    cursor: pointer;
+}
+
+.container .videoList .vid:hover{
+    background-color: grey; /* Change background color on hover */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.container .videoList .vid.active{
+    color: white;
+}
+
+.container .videoList .vid .videoTitle{
+    font-family: Teko, sans-serif;
+    font-size: 23px;
+    color: white; /* Text color */
+}
+
+@media (max-width: 991px) {
+    .container{
+        grid-template-columns: 1.5fr 1fr;
+        padding: 10px; /* Add spacing around the container */
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .container{
+        grid-template-columns: 1fr;
+        padding: 10px; /* Add spacing around the container */
+    }
+    
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    background-color: black; /* Footer background color */
+    color: white; /* Text color */
+    padding: 20px; /* Add spacing inside the footer */
+    gap: 20px; /* Add spacing between the elements */
+    flex-shrink: 0;
+}
+
+footer h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+}
+
+.socials {
+    display: flex;
+    justify-content: center; /* Center the social links */
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Add spacing between the social icons */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    list-style: none; /* Remove bullet points */
+}
+
+.socials li {
+    list-style: none; /* Ensure no bullets */
+}
+
+.socials a {
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.socials a:hover {
+    opacity: 0.7; /* Add hover effect */
+}
+
+footer p {
+    font-family: 'Teko', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+}
