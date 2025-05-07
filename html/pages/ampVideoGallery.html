@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMP VIDEOS</title>
+    <link rel="stylesheet" href="/css/ampVideoGallery.css">
+</head>
+<body>
+    <header>
+        <a href="../../html/index.html"><img class="logo" src="/images/ampGif.gif" alt="AMP Logo" width="55" height="55"/></a>
+        <nav>
+          <ul class="navLinks">
+            <li><a href="../../html/index.html">AMP HOME</a></li>
+            <li><a href="ampAbout.html">AMP ABOUT</a></li>
+            <li><a  href="ampMembers.html">AMP MEMBERS</a></li>
+            <li><a class="active" href="ampVideoGallery.html">AMP VIDEO GALLERY</a></li>
+          </ul>
+        </nav>
+    </header>
+
+       <h2 class="videoHeader">AMP VIDEO GALLERY</h2>
+
+       <div class="container">
+
+        <div class="mainVideo">
+            <div class="video">
+            <iframe src="https://www.youtube.com/embed/-Sf4pWYmSkQ?si=Thv2So3yD-czaeva" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="videoTitle">.01 AMP THE PRICE IS WRONG</h3>
+            </div>
+        </div>
+        <div class="videoList">
+            <div class="vid active">
+                <iframe src="https://www.youtube.com/embed/0vYxSZr50GY?si=Dhk-2BV9sc5M6WS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <h3 class="videoTitle">.02 AMP STORAGE WARS</h3>
+            </div>
+            <div class="vid">
+                <iframe src="https://www.youtube.com/embed/BblU85uT_5s?si=uakztFPkMgau5fER" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <h3 class="videoTitle">.03 AMP $3M CAR COLLECTION</h3>
+            </div>
+
+            <div class="vid">
+                <iframe src="https://www.youtube.com/embed/NDsQ9TNMQnY?si=low_FPmLQKT05hjh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <h3 class="videoTitle">.04 AMP MAKES A MOVIE</h3>
+            </div>
+            
+            <div class="vid">
+                <iframe src="https://www.youtube.com/embed/U0CMew4r7ro?si=CTKV658hS1Gcd-Tt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <h3 class="videoTitle">.05 AMP JEOPARDY</h3>
+            </div>
+
+            <div class="vid">
+                <iframe src="https://www.youtube.com/embed/uyCPhAWqFF8?si=yV09rmrOQDOvQWuU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <h3 class="videoTitle">.06 AMP MMA BASKETBALL</h3>
+            </div>
+        </div>
+        
+       </div>
+
+    <footer>
+        <h3>AMP Socials</h3>
+        <ul class="socials">
+          <li>
+            <a href="https://www.youtube.com/@AMPEXCLUSIVE" target="_blank">
+              <img src="/images/youtubeLogo.svg" width="35" height="35" alt="Youtube Logo" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/ampexclusive/" target="_blank">
+              <img src="/images/instagramLogo.svg" height="35" width="35" alt="Instagram Logo" />
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/AMPexclusive" target="_blank">
+              <img src="/images/twitterLogo.svg" width="35" height="35" alt="Twitter Logo" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@ampexclusive6" target="_blank">
+              <img src="/images/tikTokLogo.svg" width="35" height="35" alt="Tiktok Logo" />
+            </a>
+          </li>
+          <li>
+            <a href="https://amp.shop/?srsltid=AfmBOooL_I4fxnrD873vIpm4juyU7GcVvSacJzszHo7vcpJd3XmJgWRy" target="_blank">
+              <img src="/images/ampLogo.png" height="35" width="35" alt="AMP Logo" />
+            </a>
+          </li>
+        </ul>
+        <p>Author: DevzVille</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const listVideos = document.querySelectorAll('.videoList .vid');
+    const mainVideo = document.querySelector('.mainVideo .video iframe');
+    const mainVideoTitle = document.querySelector('.mainVideo .video .videoTitle');
+
+    listVideos.forEach(vid => {
+        vid.addEventListener('click', function() {
+            // Remove active class from all
+            listVideos.forEach(v => v.classList.remove('active'));
+            
+            // Add active to clicked
+            this.classList.add('active');
+            
+            // Update main video and title
+            const clickedIframe = this.querySelector('iframe');
+            const clickedTitle = this.querySelector('.videoTitle');
+            
+            mainVideo.src = clickedIframe.src;
+            mainVideoTitle.textContent = clickedTitle.textContent;
+            
+            // Force redraw (helps with some rendering issues)
+            mainVideo.style.display = 'none';
+            mainVideo.offsetHeight; // trigger reflow
+            mainVideo.style.display = 'block';
+        });
+    });
+});
+</script>
+</body>
+</html>
