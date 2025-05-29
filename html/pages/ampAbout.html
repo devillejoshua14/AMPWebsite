@@ -10,12 +10,18 @@
 
     <header>
     <a href="../../html/index.html"><img class="logo" src="/images/ampGif.gif" alt="AMP Logo" width="55" height="55"/></a>
+    <button class="hamburger" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
         <nav>
           <ul class="navLinks">
             <li><a href="../../html/index.html">AMP HOME</a></li>
             <li><a class="active" href="ampAbout.html">AMP ABOUT</a></li>
             <li><a href="ampMembers.html">AMP MEMBERS</a></li>
             <li><a href="ampVideoGallery.html">AMP VIDEO GALLERY</a></li>
+            <li> <a href="https://amp.shop/?srsltid=AfmBOooL_I4fxnrD873vIpm4juyU7GcVvSacJzszHo7vcpJd3XmJgWRy" target="_blank">AMP SHOP</a></li>
           </ul>
         </nav>
     </header>
@@ -53,13 +59,18 @@
               <img src="/images/tikTokLogo.svg" width="35" height="35" alt="Tiktok Logo" />
             </a>
           </li>
-          <li>
-            <a href="https://amp.shop/?srsltid=AfmBOooL_I4fxnrD873vIpm4juyU7GcVvSacJzszHo7vcpJd3XmJgWRy" target="_blank">
-              <img src="/images/ampLogo.png" height="35" width="35" alt="AMP Logo" />
-            </a>
-          </li>
         </ul>
         <p>Author: DevzVille</p>
       </footer>
+
+      <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.navLinks');
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('open');
+          hamburger.classList.toggle('open');
+        });
+      </script>
 </body>
 </html>
