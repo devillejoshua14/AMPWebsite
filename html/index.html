@@ -4,44 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AMP HOME</title>
+    <link rel="stylesheet" href="/css/index.css"/>
   </head>
   <body>
     <!-- navbar (from lines 10 - 16) -->
-     <header>
-      <a href="./index.html"><img src="../images/ampGif.gif" alt="AMP Logo" width="40" height="40"/></a>
+    <header>
+      <a href="index.html"><img class="logo" src="/images/ampGif.gif" alt="AMP Logo" width="55" height="55"/></a>
+      <button class="hamburger" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav>
-        <ul>
-          <li><a class="active" href="./index.html">AMP HOME</a></li>
-          <li><a href="./pages/ampAbout.html">AMP ABOUT</a></li>
-          <li><a href="./pages/ampMembers.html">AMP MEMBERS</a></li>
-          <li><a href="./pages/ampVideoGallery.html">AMP VIDEO GALLERY</a></li>
+        <ul class="navLinks">
+          <li><a class="active" href="index.html">AMP HOME</a></li>
+          <li><a href="../html/pages/ampAbout.html">AMP ABOUT</a></li>
+          <li><a href="../html/pages/ampMembers.html">AMP MEMBERS</a></li>
+          <li><a href="../html/pages/ampVideoGallery.html">AMP VIDEO GALLERY</a></li>
+          <li> <a href="https://amp.shop/?srsltid=AfmBOooL_I4fxnrD873vIpm4juyU7GcVvSacJzszHo7vcpJd3XmJgWRy" target="_blank">AMP SHOP</a></li>
         </ul>
       </nav>
-     </header>
+  </header>
 
     <!-- side content for users to watch the recent video (lines 19-20) -->
-    <h2>Watch The Most Recent AMP Video</h2>
-    <iframe width="500" height="300" src="https://www.youtube.com/embed/MUc5VUtpGl8?si=pZgCyriKnjJU0WpF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <!-- side Content as well for announcements (lines 22-26) -->
-    <h2>Announcements</h2>
-    <ul>
-      <li>TONE is Out Now!!!!</li>
-      <li>Countdown Until Next AMP Video: TBD</li>
-      <li>AMP Has Been Featured On GQ. Check out the new <a href="https://youtu.be/d1Lx1Fjyk3Q?si=fghwXkG9RVRSHidu">GQ Video.</a></li>
-      <li>Duke Has Posted A New Youtube Video Featuring Bowling at 2 AM. Check out his new <a href="https://www.youtube.com/watch?v=AtngnzssRBQ">Video.</a></li>
-      <li>AMP AND BETSQUAD HAVE COLLABED WITH A NEW VIDEO FEATURED ON BETSQUAD'S CHANNEL. CHECK OUT THE NEW <a href="https://www.youtube.com/watch?v=O6PSwUXz7dc">VIDEO</a></li>
-    </ul>
+    <div class="container">
+      <div class="contentRow">
+        <div class="recentVid">
+          <h2>Watch The Most Recent AMP Video</h2>
+          <iframe src="https://www.youtube.com/embed/MUc5VUtpGl8?si=pZgCyriKnjJU0WpF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <!-- side Content as well for announcements (lines 22-26) -->
+        <div class="announcements">
+          <h2>Announcements</h2>
+          <ul>
+            <li>TONE is Out Now!!!!</li>
+            <li>Countdown Until Next AMP Video: TBD</li>
+            <li>AMP Has Been Featured On GQ. Check out the new <a href="https://youtu.be/d1Lx1Fjyk3Q?si=fghwXkG9RVRSHidu">GQ Video.</a></li>
+            <li>Duke Has Posted A New Youtube Video Featuring Bowling at 2 AM. Check out his new <a href="https://www.youtube.com/watch?v=AtngnzssRBQ">Video.</a></li>
+            <li>AMP AND BETSQUAD HAVE COLLABED WITH A NEW VIDEO FEATURED ON BETSQUAD'S CHANNEL. CHECK OUT THE NEW <a href="https://www.youtube.com/watch?v=O6PSwUXz7dc">VIDEO</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <!-- first footer for twitch status (should be six small coloumns) and countdown (lines 20-38) -->
-    <h3>Twitch Status</h3>
-    <ul>
-      <li>Duke is not <a href="https://www.twitch.tv/duke">Live</a></li>
-      <li>Kai is not <a href="https://www.twitch.tv/kaicenat">Live</a></li>
-      <li>Crhis is not <a href="https://www.twitch.tv/chrisnxtdoor">Live</a></li>
-      <li>Agent is not <a href="https://twitch.tv/agent00"> Live</a></li>
-      <li>Fanum is not <a href="https://www.twitch.tv/agent00">Live</a></li>
-      <li>Davis is not <a href="https://www.twitch.tv/davis">Live</a></li>
-    </ul>
+    <div class="statusContainer">
+      <h3>Twitch Status</h3>
+      <ul>
+        <li>Duke is not <a href="https://www.twitch.tv/duke" target="_blank">Live</a></li>
+        <li>Kai is not <a href="https://www.twitch.tv/kaicenat" target="_blank">Live</a></li>
+        <li>Crhis is not <a href="https://www.twitch.tv/chrisnxtdoor" target="_blank">Live</a></li>
+        <li>Agent is not <a href="https://twitch.tv/agent00" target="_blank">Live</a></li>
+        <li>Fanum is not <a href="https://www.twitch.tv/fanum" target="_blank">Live</a></li>
+        <li>Davis is not <a href="https://www.twitch.tv/davis" target="_blank">Live</a></li>
+      </ul>
+  </div>
 
     <!-- Sceond footer for AMP Socials-->
     <footer>
@@ -67,13 +84,18 @@
             <img src="/images/tikTokLogo.svg" width="35" height="35" alt="Tiktok Logo" />
           </a>
         </li>
-        <li>
-          <a href="https://amp.shop/?srsltid=AfmBOooL_I4fxnrD873vIpm4juyU7GcVvSacJzszHo7vcpJd3XmJgWRy" target="_blank">
-            <img src="/images/ampLogo.png" height="35" width="35" alt="AMP Logo" />
-          </a>
-        </li>
       </ul>
       <p>Author: DevzVille</p>
     </footer>
+
+    <script>
+      // Hamburger menu toggle
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.navLinks');
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open');
+      });
+    </script>
   </body>
 </html>
