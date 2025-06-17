@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font: 'Teko', sans-serif;
+}
+li, a{
+    font-family: 'Teko', sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+    text-decoration: none;
+
+}
+
+header{
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background-color: gold;
+    justify-content: space-between;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.logo{
+    transition: 0.3s ease 0s;
+    padding: 10px;
+    border-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo:hover{
+    opacity: .5;
+}
+
+.navLinks {
+  list-style: none;
+  background-color: gold;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.navLinks li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.navLinks li a {
+  transition: 0.3s ease 0s;
+  color: black;
+  text-decoration: none;
+  font-family: 'Teko', sans-serif;
+  font-weight: 500;
+  font-size: 35px;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.navLinks li a:hover,
+.navLinks li a.active {
+  color: white;
+  background: #222;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    gap: 150px;
+}
+
+.contentRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+.recentVid, .announcements {
+    flex: 1;
+  }
+
+.announcements{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 5px 5px gold;
+    margin-right: 10px;
+}
+.announcements h2{
+    font-family: 'Teko', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.container .recentVid iframe{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.recentVid h2{
+    font-family: 'Teko', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.statusContainer{
+    align-items: center;
+    gap: 10px;
+    background-color: gold;
+    color: black;
+    margin-top: 650px;
+}
+
+.statusContainer ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 10px;
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+.statusContainer li {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Add spacing between the icon and text */
+    text-align: center;
+}
+
+.statusContainer h3{
+    font-family: 'Teko', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+}
+
+footer {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    background-color: black; /* Footer background color */
+    color: white; /* Text color */
+    padding: 20px; /* Add spacing inside the footer */
+    gap: 20px; /* Add spacing between the elements */
+    flex-shrink: 0;
+}
+
+footer h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+}
+
+.socials {
+    display: flex;
+    justify-content: center; /* Center the social links */
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Add spacing between the social icons */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    list-style: none; /* Remove bullet points */
+}
+
+.socials li {
+    list-style: none; /* Ensure no bullets */
+}
+
+.socials a {
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.socials a:hover {
+    opacity: 0.7; /* Add hover effect */
+}
+
+footer p {
+    font-family: 'Teko', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  margin: 5px 0;
+  background: #000;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    gap: 40px;
+    height: auto;
+  }
+  .contentRow {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .recentVid, .announcements {
+    width: 100%;
+    flex: unset;
+  }
+  .statusContainer ul {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    background: gold;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .navLinks.open {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .navLinks li {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .navLinks li a {
+    font-size: 30px;
+    width: 100%;
+    display: block;
+  }
+  header {
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+  }
+}
