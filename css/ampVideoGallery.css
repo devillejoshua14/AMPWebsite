@@ -284,11 +284,12 @@ footer {
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
-    background-color: black; /* Footer background color */
-    color: white; /* Text color */
+    background-color: gold; /* Footer background color */
+    color: black; /* Text color */
     padding: 20px; /* Add spacing inside the footer */
     gap: 20px; /* Add spacing between the elements */
     flex-shrink: 0;
+    margin-top: 60px;
 }
 
 footer h3 {
