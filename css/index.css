@@ -17,6 +17,7 @@ li, a{
 
 header{
     position: sticky;
+    z-index: 1000;
     top: 0;
     display: flex;
     align-items: center;
