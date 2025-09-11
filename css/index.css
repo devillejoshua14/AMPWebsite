@@ -195,7 +195,7 @@ header{
 }
 
 .statusContainer li.live .streamer-name {
-    color: #ff4444;
+    color: black;
     font-weight: bold;
 }
 
@@ -212,7 +212,7 @@ header{
 }
 
 .statusContainer li.offline .streamer-name {
-    color: #ccc;
+    color: black;
 }
 
 .statusContainer li.offline a {
