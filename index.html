@@ -53,13 +53,43 @@
     <!-- first footer for twitch status (should be six small coloumns) and countdown (lines 20-38) -->
     <div class="statusContainer">
       <h3>Twitch Status</h3>
-      <ul>
-        <li>Duke is not<a href="https://www.twitch.tv/duke" target="_blank">Live</a></li>
-        <li>Kai is not<a href="https://www.twitch.tv/kaicenat" target="_blank">Live</a></li>
-        <li>Chris is not <a href="https://www.twitch.tv/chrisnxtdoor" target="_blank">Live</a></li>
-        <li>Agent is not<a href="https://twitch.tv/agent00" target="_blank">Live</a></li>
-        <li>Fanum is not<a href="https://www.twitch.tv/fanum" target="_blank">Live</a></li>
-        <li>Davis is not<a href="https://www.twitch.tv/davis" target="_blank">Live</a></li>
+      <ul id="twitchStatusList">
+        <li id="duke-status">
+          <span class="live-indicator offline"></span>
+          <span class="streamer-name">Duke</span>
+          <span class="status-text">is not</span>
+          <a href="https://www.twitch.tv/duke" target="_blank">Live</a>
+        </li>
+        <li id="kai-status">
+          <span class="live-indicator offline"></span>
+          <span class="streamer-name">Kai</span>
+          <span class="status-text">is not</span>
+          <a href="https://www.twitch.tv/kaicenat" target="_blank">Live</a>
+        </li>
+        <li id="chris-status">
+          <span class="live-indicator offline"></span>
+          <span class="streamer-name">Chris</span>
+          <span class="status-text">is not</span>
+          <a href="https://www.twitch.tv/chrisnxtdoor" target="_blank">Live</a>
+        </li>
+        <li id="agent-status">
+          <span class="live-indicator offline"></span>
+          <span class="streamer-name">Agent</span>
+          <span class="status-text">is not</span>
+          <a href="https://twitch.tv/agent00" target="_blank">Live</a>
+        </li>
+        <li id="fanum-status">
+          <span class="live-indicator offline"></span>
+          <span class="streamer-name">Fanum</span>
+          <span class="status-text">is not</span>
+          <a href="https://www.twitch.tv/fanum" target="_blank">Live</a>
+        </li>
+        <li id="davis-status">
+          <span class="live-indicator offline"></span>
+          <span class="streamer-name">Davis</span>
+          <span class="status-text">is not</span>
+          <a href="https://www.twitch.tv/davis" target="_blank">Live</a>
+        </li>
       </ul>
   </div>
 
@@ -98,6 +128,104 @@
       hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('open');
         hamburger.classList.toggle('open');
+      });
+
+      // Twitch API Configuration
+      const TWITCH_CLIENT_ID = 'ccfnytj70kipdsrtkvwjcwnkx36sxj'; // Replace with your actual Client ID
+      const TWITCH_API_BASE = 'https://api.twitch.tv/helix';
+      
+      // Streamer configuration
+      const streamers = {
+        'duke': { username: 'duke', displayName: 'Duke', elementId: 'duke-status' },
+        'kaicenat': { username: 'kaicenat', displayName: 'Kai', elementId: 'kai-status' },
+        'chrisnxtdoor': { username: 'chrisnxtdoor', displayName: 'Chris', elementId: 'chris-status' },
+        'agent00': { username: 'agent00', displayName: 'Agent', elementId: 'agent-status' },
+        'fanum': { username: 'fanum', displayName: 'Fanum', elementId: 'fanum-status' },
+        'davis': { username: 'davis', displayName: 'Davis', elementId: 'davis-status' }
+      };
+
+      // Function to check live status for all streamers
+      async function checkTwitchStatus() {
+        try {
+          // Get all streamer usernames
+          const usernames = Object.keys(streamers);
+          const userLogins = usernames.join('&user_login=');
+          
+          // Make API request to check live status
+          const response = await fetch(`${TWITCH_API_BASE}/streams?user_login=${userLogins}`, {
+            headers: {
+              'Client-ID': TWITCH_CLIENT_ID,
+              'Accept': 'application/vnd.twitchtv.v5+json'
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          const liveStreams = data.data || [];
+
+          // Create a map of live streamers
+          const liveStreamers = new Set();
+          liveStreams.forEach(stream => {
+            liveStreamers.add(stream.user_login);
+          });
+
+          // Update each streamer's status
+          Object.values(streamers).forEach(streamer => {
+            updateStreamerStatus(streamer, liveStreamers.has(streamer.username));
+          });
+
+        } catch (error) {
+          console.error('Error checking Twitch status:', error);
+          // On error, show all as offline
+          Object.values(streamers).forEach(streamer => {
+            updateStreamerStatus(streamer, false, true);
+          });
+        }
+      }
+
+      // Function to update individual streamer status
+      function updateStreamerStatus(streamer, isLive, isError = false) {
+        const element = document.getElementById(streamer.elementId);
+        if (!element) return;
+
+        const liveIndicator = element.querySelector('.live-indicator');
+        const statusText = element.querySelector('.status-text');
+        const liveLink = element.querySelector('a');
+
+        if (isError) {
+          // Error state - show as offline with error styling
+          liveIndicator.className = 'live-indicator error';
+          statusText.textContent = 'is not';
+          liveLink.textContent = 'Live';
+          element.classList.remove('live');
+          element.classList.add('error');
+        } else if (isLive) {
+          // Live state
+          liveIndicator.className = 'live-indicator live';
+          statusText.textContent = 'is';
+          liveLink.textContent = 'LIVE';
+          element.classList.add('live');
+          element.classList.remove('offline');
+        } else {
+          // Offline state
+          liveIndicator.className = 'live-indicator offline';
+          statusText.textContent = 'is not';
+          liveLink.textContent = 'Live';
+          element.classList.add('offline');
+          element.classList.remove('live');
+        }
+      }
+
+      // Initialize and start checking
+      document.addEventListener('DOMContentLoaded', function() {
+        // Check immediately on page load
+        checkTwitchStatus();
+        
+        // Then check every minute (60000ms)
+        setInterval(checkTwitchStatus, 60000);
       });
     </script>
   </body>

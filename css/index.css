@@ -144,6 +144,117 @@ header{
     align-items: center; /* Center items vertically */
     gap: 10px; /* Add spacing between the icon and text */
     text-align: center;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+/* Live indicator styles */
+.live-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.live-indicator.offline {
+    background-color: #666;
+    box-shadow: 0 0 0 0 rgba(102, 102, 102, 0.4);
+}
+
+.live-indicator.live {
+    background-color: #ff0000;
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.live-indicator.error {
+    background-color: #ffa500;
+    box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.4);
+}
+
+/* Pulse animation for live indicator */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+
+/* Live status styling */
+.statusContainer li.live {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.statusContainer li.live .streamer-name {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+.statusContainer li.live a {
+    color: #ff0000;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+/* Offline status styling */
+.statusContainer li.offline {
+    background-color: rgba(102, 102, 102, 0.1);
+    border: 1px solid rgba(102, 102, 102, 0.2);
+}
+
+.statusContainer li.offline .streamer-name {
+    color: #ccc;
+}
+
+.statusContainer li.offline a {
+    color: #888;
+}
+
+/* Error status styling */
+.statusContainer li.error {
+    background-color: rgba(255, 165, 0, 0.1);
+    border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.statusContainer li.error .streamer-name {
+    color: #ffa500;
+}
+
+.statusContainer li.error a {
+    color: #ffa500;
+}
+
+/* Streamer name styling */
+.streamer-name {
+    font-weight: bold;
+    min-width: 60px;
+    text-align: left;
+}
+
+/* Status text styling */
+.status-text {
+    font-style: italic;
+}
+
+/* Link styling for live status */
+.statusContainer li a {
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.statusContainer li a:hover {
+    text-decoration: underline;
+    transform: scale(1.05);
 }
 
 .statusContainer h3{
