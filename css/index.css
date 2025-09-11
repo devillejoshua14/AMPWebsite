@@ -226,7 +226,7 @@ header{
 }
 
 .statusContainer li.error .streamer-name {
-    color: #ffa500;
+    color: black;
 }
 
 .statusContainer li.error a {
