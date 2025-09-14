@@ -149,21 +149,27 @@
         try {
           // Get all streamer usernames
           const usernames = Object.keys(streamers);
-          const userLogins = usernames.join('&user_login=');
+          const userLogins = usernames.map(username => `user_login=${username}`).join('&');
           
           // Make API request to check live status
-          const response = await fetch(`${TWITCH_API_BASE}/streams?user_login=${userLogins}`, {
+          const apiUrl = `${TWITCH_API_BASE}/streams?${userLogins}`;
+          console.log('Checking Twitch API:', apiUrl);
+          
+          const response = await fetch(apiUrl, {
             headers: {
               'Client-ID': TWITCH_CLIENT_ID,
               'Accept': 'application/vnd.twitchtv.v5+json'
             }
           });
 
+          console.log('API Response status:', response.status);
+
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
 
           const data = await response.json();
+          console.log('API Response data:', data);
           const liveStreams = data.data || [];
 
           // Create a map of live streamers
